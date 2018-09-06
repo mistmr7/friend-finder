@@ -1,10 +1,14 @@
-let server = require('../../app/server')
+let path = require('path')
 
-server.app.get('/', (res, req) => { 
-    res.sendFile(path.join(__dirname, '../public/home.html'))
-})
+module.exports = function(app){
 
-server.app.get('/survey', (res, req) => {
-    res.sendFile(path.join(__dirname, '../../survey.html'))
-})
+    app.get('/', function(req, res) {
+        res.sendFile(path.join(__dirname + "../../public/home.html"));
+    })
+
+    app.get('/survey', (req, res) => {
+        res.sendFile(path.join(__dirname, '/../public/survey.html'))
+    })
+    
+}
 
