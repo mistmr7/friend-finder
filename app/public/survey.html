@@ -249,28 +249,28 @@
             Submit</button>
     
         <hr>
-          
-        <div id="myModal" class="modal">
-
+        <div class="container">
+            <div id="myModal" class="modal">
                 <!-- Modal content -->
                 <div class="modal-content">
-                        <div class="modal-header">
-                          <span class="close">&times;</span>
-                        </div>
-                        <div class="modal-body">
-                          
-                        </div>
-                        <div class="modal-footer">
-                            <button id="close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-              
-              </div>
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button id="close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>                
+            </div>
+        </div>  
+        
     
     </form> 
     <footer class="footer">
             <div class="container">
-            <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/mistmr7/friendfinder" target="_blank">GitHub Repo</a></p>
+            <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/mistmr7/friendfinder" target="_blank">GitHub Repo</a> | <a href="/">Home</a></p>
             </div>
         </footer>  
     <!-- Optional JavaScript -->
@@ -327,6 +327,7 @@
                 $.post('/api/friends', newFriend, function(data){
                     $('.modal-header').text(data.name)
                     let profilePic = $('<img>').attr('src', data.photo)
+                    profilePic.css({'max-width': '100%', 'max-height': '100%'})
                     $('.modal-body').append(profilePic)
                 })
                 
